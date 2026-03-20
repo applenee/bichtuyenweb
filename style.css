@@ -1,0 +1,155 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com');
+
+:root {
+    /* Thay đổi màu chủ đạo sang Hồng Neon */
+    --pink: #ff007f; 
+    --light-pink: #ff66b2;
+    --white: #ffffff;
+    --glass: rgba(20, 0, 10, 0.7); /* Thêm chút ánh tím/hồng cho nền kính */
+    --border: rgba(255, 0, 127, 0.3);
+    --accent: #00f2ff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+/* 1. Background hình ảnh Parallax */
+.parallax-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background-image: url('./background.jpg');
+    z-index: -1;
+    filter: blur(5px) brightness(0.5); /* Giảm độ sáng một chút để màu hồng nổi bật hơn */
+    transform: scale(1.1);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 2. Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(3rem, 10vw, 6rem);
+    text-transform: uppercase;
+    line-height: 0.9;
+    -webkit-text-stroke: 1px var(--pink); /* Đổi viền chữ sang hồng */
+    color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px rgba(255, 0, 127, 0.3); }
+    to { text-shadow: 0 0 30px var(--pink); color: var(--pink); }
+}
+
+/* 3. Glass Container */
+.content-section {
+    max-width: 1200px;
+    margin: 100px auto;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 80px 50px;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.9);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--pink); /* Tiêu đề màu hồng */
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* 4. Thư viện ảnh */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 50px 0;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: 0.5s;
+    border: 2px solid var(--border);
+    cursor: pointer;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05) rotate(2deg);
+    border-color: var(--pink); /* Hover hiện viền hồng */
+    filter: brightness(1.2);
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+}
+
+/* 5. Cột mốc thời gian (Timeline) */
+.timeline {
+    border-left: 2px dashed var(--pink); /* Đường kẻ hồng */
+    padding-left: 30px;
+    margin-left: 20px;
+}
+
+.timeline-item {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -41px; top: 0;
+    width: 20px; height: 20px;
+    background: var(--pink); /* Nút timeline hồng */
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--pink);
+}
+
+/* 6. Footer chuyên nghiệp */
+footer {
+    padding: 100px 20px;
+    background: rgba(0,0,0,0.95);
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.contact-btn {
+    padding: 20px 60px;
+    background: var(--pink); /* Nút hồng */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 900;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.contact-btn:hover {
+    box-shadow: 0 0 30px var(--pink);
+    transform: translateY(-5px);
+    background: var(--white);
+    color: var(--pink);
+}
